@@ -7,8 +7,19 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@vueuse/nuxt',
     'nuxt-og-image',
-    'motion-v/nuxt'
+    'motion-v/nuxt',
+    '@nuxtjs/i18n'
   ],
+
+  i18n: {
+    locales: [
+      { code: 'en', language: 'en-US' },
+      { code: 'id', language: 'id-ID' }
+    ],
+    defaultLocale: 'en',
+    strategy: 'prefix_except_default',
+    detectBrowserLanguage: false
+  },
 
   devtools: {
     enabled: true
@@ -21,7 +32,8 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: [
-        '/'
+        '/',
+        '/id'
       ],
       crawlLinks: true
     }
@@ -36,3 +48,4 @@ export default defineNuxtConfig({
     }
   }
 })
+// trigger dev server restart
