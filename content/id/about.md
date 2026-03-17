@@ -1,9 +1,9 @@
 ---
-title: "About Me"
-description: "A summary about Muhammad Fatih Bagaskara"
+title: "Tentang Saya"
+description: "Ringkasan tentang Muhammad Fatih Bagaskara"
 ---
-Muhammad Fatih Bagaskara is a Software Engineering graduate from Institut Pertanian Bogor with strong interest in web development and data science.
+Muhammad Fatih Bagaskara adalah lulusan Rekayasa Perangkat Lunak dari Institut Pertanian Bogor dengan ketertarikan yang kuat pada pengembangan web dan ilmu data.
 
-He has experience developing web-based information systems, integrating machine learning for analyzing public complaints, and building digital solutions for organizations and businesses.
+Dia memiliki pengalaman dalam mengembangkan sistem informasi berbasis web, mengintegrasikan machine learning untuk analisis pengaduan masyarakat, serta membangun solusi digital untuk organisasi dan bisnis.
 
-He enjoys building scalable systems that solve real-world problems.
+Dia senang membangun sistem yang dapat diskalakan untuk menyelesaikan masalah di dunia nyata.

@@ -1,13 +1,13 @@
 ---
-title: "Software Engineer & Web Developer"
-description: "Building impactful digital solutions through web development and data-driven systems."
+title: "Insinyur Perangkat Lunak & Pengembang Web"
+description: "Membangun solusi digital yang berdampak melalui pengembangan web dan sistem berbasis data."
 links:
-  - label: "View Projects"
+  - label: "Lihat Proyek"
     to: "#projects"
     color: "neutral"
     size: "lg"
     variant: "solid"
-  - label: "Contact Me"
+  - label: "Hubungi Saya"
     to: "#contact"
     color: "primary"
     size: "lg"

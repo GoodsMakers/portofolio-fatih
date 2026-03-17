@@ -18,90 +18,94 @@ useSeoMeta({
 </script>
 
 <template>
-  <UPage>
-    <!-- Hero Section -->
+  <div class="space-y-12 pb-20">
+    <!-- Hero Section (Full Width) -->
     <HeroSection v-if="heroData" :page="heroData" />
 
-    <!-- About Section -->
-    <UPageSection
-      id="about"
-      v-if="aboutData"
-      :title="aboutData.title"
-      :description="aboutData.description"
-    >
-      <div class="prose dark:prose-invert max-w-none text-center sm:text-left mx-auto">
-        <MDC :value="aboutData.body" />
+    <!-- Bento Grid Section -->
+    <div class="grid grid-cols-1 md:grid-cols-6 gap-6 auto-rows-auto">
+      
+      <!-- About Section (Large) -->
+      <GlassCard 
+        id="about"
+        v-if="aboutData" 
+        class="md:col-span-3 scroll-mt-28"
+        :title="aboutData.title"
+        icon="i-heroicons-user"
+        :hoverable="true"
+      >
+        <div class="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-300">
+          <MDC :value="aboutData.body" />
+        </div>
+      </GlassCard>
+
+      <!-- Projects Section (Large) -->
+      <div id="projects" v-if="projectsData" class="md:col-span-3 h-full scroll-mt-28">
+        <ProjectCards :page="projectsData" />
       </div>
-    </UPageSection>
 
-    <!-- Experience Section -->
-    <ExperienceTimeline v-if="experienceData" :page="experienceData" />
+      <!-- Skills Section (Medium) -->
+      <div id="skills" v-if="skillsData" class="md:col-span-2 scroll-mt-28">
+        <SkillsGrid :page="skillsData" />
+      </div>
 
-    <!-- Projects Section -->
-    <ProjectCards v-if="projectsData" :page="projectsData" />
+      <!-- Experience Section (Medium) -->
+      <div id="experience" v-if="experienceData" class="md:col-span-2 scroll-mt-28">
+        <ExperienceTimeline :page="experienceData" />
+      </div>
 
-    <!-- Skills Section -->
-    <SkillsGrid v-if="skillsData" :page="skillsData" />
-
-    <!-- Education, Achievements, Certifications -->
-    <UPageSection>
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <!-- Education -->
-        <div v-if="educationData">
-          <h2 class="text-2xl font-bold mb-6">{{ educationData.title }}</h2>
-          <div class="space-y-6">
-            <div v-for="(edu, index) in educationData.items" :key="index">
-              <h3 class="font-semibold">{{ edu.degree }}</h3>
-              <p class="text-sm text-primary">{{ edu.institution }}</p>
-              <div class="text-xs text-gray-500 dark:text-gray-400 mt-1 flex justify-between">
-                <span>{{ edu.date }}</span>
-                <span>GPA: {{ edu.gpa }}</span>
-              </div>
+      <!-- Education & Achievements (Small/Medium) -->
+      <GlassCard 
+        v-if="educationData || achievementsData" 
+        class="md:col-span-2 scroll-mt-28"
+        :title="educationData?.title || achievementsData?.title"
+        icon="i-heroicons-academic-cap"
+        :hoverable="true"
+      >
+        <div class="space-y-6">
+          <div v-if="educationData" class="space-y-4">
+            <div v-for="(edu, index) in educationData.items" :key="index" class="border-l-2 border-indigo-500/20 pl-4">
+              <h4 class="font-bold text-slate-900 dark:text-white">{{ edu.degree }}</h4>
+              <p class="text-sm text-indigo-500 font-medium">{{ edu.institution }}</p>
+              <p class="text-xs text-slate-500 mt-1">{{ edu.date }} • {{ locale === 'id' ? 'IPK' : 'GPA' }}: {{ edu.gpa }}</p>
             </div>
           </div>
+          <div v-if="achievementsData" class="pt-4 border-t border-slate-200 dark:border-white/10">
+            <h4 class="font-bold text-slate-900 dark:text-white mb-3">{{ achievementsData.title }}</h4>
+            <ul class="space-y-2">
+              <li v-for="(achievement, index) in achievementsData.items" :key="index" class="text-sm text-slate-600 dark:text-slate-400 flex items-start gap-2">
+                <UIcon name="i-heroicons-trophy" class="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
+                {{ achievement }}
+              </li>
+            </ul>
+          </div>
         </div>
+      </GlassCard>
 
-        <!-- Achievements -->
-        <div v-if="achievementsData">
-          <h2 class="text-2xl font-bold mb-6">{{ achievementsData.title }}</h2>
-          <ul class="list-disc list-inside space-y-2 text-sm text-gray-600 dark:text-gray-300">
-            <li v-for="(achievement, index) in achievementsData.items" :key="index">
-              {{ achievement }}
-            </li>
-          </ul>
+      <!-- Contact Section (Small/Full) -->
+      <GlassCard 
+        id="contact"
+        v-if="contactData" 
+        class="md:col-span-6 lg:col-span-2 lg:col-start-5"
+        :title="contactData.title"
+        icon="i-heroicons-chat-bubble-left-right"
+        :hoverable="true"
+      >
+        <div class="flex flex-col gap-4">
+          <a :href="'mailto:' + contactData.email" class="p-3 rounded-2xl bg-white/50 dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:border-indigo-500 dark:hover:border-indigo-500 transition-colors flex items-center gap-3">
+             <UIcon name="i-heroicons-envelope" class="w-5 h-5 text-indigo-500" />
+             <span class="text-sm font-medium truncate">{{ contactData.email }}</span>
+          </a>
+          <a :href="contactData.linkedin" target="_blank" class="p-3 rounded-2xl bg-white/50 dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:border-blue-500 dark:hover:border-blue-500 transition-colors flex items-center gap-3">
+             <UIcon name="i-bx-bxl-linkedin-square" class="w-5 h-5 text-blue-500" />
+             <span class="text-sm font-medium">{{ locale === 'id' ? 'Profil LinkedIn' : 'LinkedIn Profile' }}</span>
+          </a>
+          <div class="p-3 rounded-2xl bg-white/50 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center gap-3">
+             <UIcon name="i-heroicons-map-pin" class="w-5 h-5 text-rose-500" />
+             <span class="text-sm font-medium text-slate-600 dark:text-slate-400">{{ contactData.location }}</span>
+          </div>
         </div>
-
-        <!-- Certifications -->
-        <div v-if="certificationsData">
-          <h2 class="text-2xl font-bold mb-6">{{ certificationsData.title }}</h2>
-          <ul class="list-disc list-inside space-y-2 text-sm text-gray-600 dark:text-gray-300">
-            <li v-for="(cert, index) in certificationsData.items" :key="index">
-              {{ cert.name }}
-            </li>
-          </ul>
-        </div>
-      </div>
-    </UPageSection>
-
-    <!-- Contact Section -->
-    <UPageSection
-      id="contact"
-      v-if="contactData"
-      :title="contactData.title"
-      :description="contactData.description"
-    >
-      <div class="flex flex-col items-center gap-4 text-center">
-        <a :href="'mailto:' + contactData.email" class="text-lg font-medium hover:text-primary transition-colors flex items-center gap-2">
-           <UIcon name="i-heroicons-envelope" class="w-5 h-5" /> {{ contactData.email }}
-        </a>
-        <a :href="contactData.linkedin" target="_blank" class="text-lg font-medium hover:text-primary transition-colors flex items-center gap-2">
-           <UIcon name="i-bx-bxl-linkedin-square" class="w-5 h-5" /> LinkedIn Profile
-        </a>
-        <p class="text-gray-500 dark:text-gray-400 flex items-center gap-2">
-           <UIcon name="i-heroicons-map-pin" class="w-5 h-5" /> {{ contactData.location }}
-        </p>
-      </div>
-    </UPageSection>
-
-  </UPage>
+      </GlassCard>
+    </div>
+  </div>
 </template>

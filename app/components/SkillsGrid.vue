@@ -5,23 +5,29 @@ defineProps<{
 </script>
 
 <template>
-  <UPageSection
-    id="skills"
-    v-if="page"
-    :title="page.title"
-    :description="page.description"
+  <GlassCard 
+    v-if="page" 
+    class="h-full" 
+    :title="page.title" 
+    icon="i-heroicons-wrench-screwdriver"
+    :hoverable="true"
   >
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <UCard v-for="(category, index) in page.categories" :key="index">
-        <template #header>
-          <h3 class="font-semibold text-lg">{{ category.name }}</h3>
-        </template>
+    <div class="space-y-6">
+      <div v-for="(category, index) in page.categories" :key="index" class="space-y-3">
+        <h4 class="text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+          {{ category.name }}
+        </h4>
         <div class="flex flex-wrap gap-2">
-          <UBadge v-for="(item, iIndex) in category.items" :key="iIndex" variant="soft" color="neutral">
+          <UBadge 
+            v-for="(item, iIndex) in category.items" 
+            :key="iIndex" 
+            variant="soft" 
+            class="rounded-full px-3 py-1 bg-white/50 dark:bg-white/10 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 font-medium hover:border-cyan-500/50 transition-colors"
+          >
             {{ item }}
           </UBadge>
         </div>
-      </UCard>
+      </div>
     </div>
-  </UPageSection>
+  </GlassCard>
 </template>

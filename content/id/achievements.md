@@ -1,9 +1,9 @@
 ---
-title: "Achievements"
-description: "Awards and Recognition"
+title: "Pencapaian"
+description: "Penghargaan dan Pengakuan"
 items:
-  - "Top 5 Finalist Olimpiade Vokasi Indonesia – Smart System & Smart Application"
-  - "2nd Place Videography Competition EXAL Universitas Bakrie"
-  - "Favorite Winner Short Video Competition PLN"
-  - "Volunteer P2MD – Digital Waste Bank Website Project"
+  - "Top 5 Finalis Olimpiade Vokasi Indonesia – Smart System & Smart Application"
+  - "Juara 2 Kompetisi Videografi EXAL Universitas Bakrie"
+  - "Pemenang Favorit Kompetisi Video Pendek PLN"
+  - "Relawan P2MD – Proyek Website Bank Sampah Digital"
 ---

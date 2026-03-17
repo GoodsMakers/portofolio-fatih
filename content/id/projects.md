@@ -1,17 +1,17 @@
 ---
-title: "Projects"
-description: "Selected personal and professional projects"
+title: "Proyek"
+description: "Pilihan proyek personal dan profesional"
 list:
-  - title: "Public Complaint Management System"
+  - title: "Sistem Manajemen Pengaduan Masyarakat"
     stack: ["CodeIgniter", "PHP", "MySQL", "Machine Learning"]
-    description: "Government complaint management platform with automated analysis of public reports."
-  - title: "Digital Accounting Information System"
+    description: "Platform manajemen pengaduan pemerintah dengan analisis otomatis laporan masyarakat."
+  - title: "Sistem Informasi Akuntansi Digital"
     stack: ["PHP", "MySQL"]
-    description: "Web system for managing accounting journals with role-based access control."
-  - title: "School Attendance System"
+    description: "Sistem web untuk mengelola jurnal akuntansi dengan kontrol akses berbasis peran."
+  - title: "Sistem Kehadiran Sekolah"
     stack: ["Web Application"]
-    description: "Automated attendance percentage system for student academic evaluation."
-  - title: "HR Overtime Calculation System"
+    description: "Sistem persentase kehadiran otomatis untuk evaluasi akademik siswa."
+  - title: "Sistem Kalkulasi Lembur HRD"
     stack: ["Excel VBA"]
-    description: "Automation tool for calculating overtime based on government regulations."
+    description: "Alat otomatisasi untuk menghitung uang lembur berdasarkan peraturan pemerintah."
 ---

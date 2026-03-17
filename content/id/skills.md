@@ -1,15 +1,15 @@
 ---
-title: "Skills"
-description: "Technical skills and expertise"
+title: "Keahlian"
+description: "Keahlian teknis dan domain"
 categories:
-  - name: "Programming"
+  - name: "Pemrograman"
     items: ["PHP", "Python", "JavaScript"]
-  - name: "Frameworks"
+  - name: "Framework"
     items: ["CodeIgniter", "Laravel", "Nuxt", "Vue"]
-  - name: "Database"
-    items: ["MySQL", "Database Design"]
-  - name: "Tools"
+  - name: "Basis Data"
+    items: ["MySQL", "Desain Basis Data"]
+  - name: "Peralatan"
     items: ["Git", "GitHub", "Excel VBA"]
-  - name: "Fields"
-    items: ["Web Development", "Machine Learning", "Data Processing", "System Design"]
+  - name: "Bidang"
+    items: ["Pengembangan Web", "Machine Learning", "Pemrosesan Data", "Desain Sistem"]
 ---
